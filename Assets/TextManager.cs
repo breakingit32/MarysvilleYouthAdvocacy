@@ -41,9 +41,6 @@ public class TextManager : MonoBehaviour
         Checking.text = "Checking: $" + cal.CalChecking(manager.players[manager.playerTracker]).ToString(); 
         Debug.Log(manager.players[manager.playerTracker].PayCheck + "CCCC");
         Col.text = "Bills: $" + month2.billss.ToString();
-<<<<<<< HEAD
->>>>>>> parent of b1379fd (finish)
-=======
 >>>>>>> parent of b1379fd (finish)
         Savings.text = "Savings: $" + Savingsss;
         
