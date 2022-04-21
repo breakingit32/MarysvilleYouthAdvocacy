@@ -25,6 +25,9 @@ public class Manager : MonoBehaviour
         Debug.Log(players[4].PayCheck);
 =======
 
+<<<<<<< HEAD
+>>>>>>> parent of b1379fd (finish)
+=======
 >>>>>>> parent of b1379fd (finish)
         month2.SetVar();
     }

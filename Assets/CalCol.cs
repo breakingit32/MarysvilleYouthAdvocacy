@@ -19,8 +19,11 @@ public class CalCol : MonoBehaviour
     public float gas;
     public float internet;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     public Month2 month2;
+=======
+>>>>>>> parent of b1379fd (finish)
 =======
 >>>>>>> parent of b1379fd (finish)
     
@@ -63,6 +66,9 @@ public class CalCol : MonoBehaviour
         if (carInsurancePaid == true) carInsurance = 0f;
         if (gaspaid == true) gas = 0f;
         if (internetPaid == true) internet = 0f;
+<<<<<<< HEAD
+>>>>>>> parent of b1379fd (finish)
+=======
 >>>>>>> parent of b1379fd (finish)
 
         float total = month2.rent + month2.food + month2.utilites + month2.carInsurance + month2.gas + month2.internet;
