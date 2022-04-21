@@ -17,11 +17,15 @@ public class Manager : MonoBehaviour
         players[2].SetBools();
         players[3].SetBools();
         players[4].SetBools();
+<<<<<<< HEAD
         Debug.Log(players[0].PayCheck);
         Debug.Log(players[1].PayCheck);
         Debug.Log(players[2].PayCheck);
         Debug.Log(players[3].PayCheck);
         Debug.Log(players[4].PayCheck);
+=======
+
+>>>>>>> parent of b1379fd (finish)
         month2.SetVar();
     }
 

@@ -31,10 +31,17 @@ public class TextManager : MonoBehaviour
         
         string checking = cal.CalChecking(manager.players[manager.playerTracker]).ToString();
         Player.text = "Player: " + (manager.playerTracker + 1).ToString();
+<<<<<<< HEAD
         //Debug.Log(cal.CalChecking(manager.players[manager.playerTracker]) + "((((");
         Checking.text = "Checking: $" + checking; 
         //Debug.Log(checking + "CCCC");
         Col.text = "Bills: $" + manager.players[manager.playerTracker].Bills.ToString();
+=======
+        Debug.Log(cal.CalChecking(manager.players[manager.playerTracker]) + "((((");
+        Checking.text = "Checking: $" + cal.CalChecking(manager.players[manager.playerTracker]).ToString(); 
+        Debug.Log(manager.players[manager.playerTracker].PayCheck + "CCCC");
+        Col.text = "Bills: $" + month2.billss.ToString();
+>>>>>>> parent of b1379fd (finish)
         Savings.text = "Savings: $" + Savingsss;
         
 
