@@ -17,12 +17,8 @@ public class Manager : MonoBehaviour
         players[2].SetBools();
         players[3].SetBools();
         players[4].SetBools();
-        Debug.Log(players[0].PayCheck);
-        Debug.Log(players[1].PayCheck);
-        Debug.Log(players[2].PayCheck);
-        Debug.Log(players[3].PayCheck);
-        Debug.Log(players[4].PayCheck);
-        month2.SetVar();
+
+       
     }
 
     // Update is called once per frame

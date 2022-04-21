@@ -39,7 +39,6 @@ public class Player : MonoBehaviour
 
     public void SetBools()
     {
-        
         Savings = 500;
         PayCheck = 2000;
         Bills = cal.Cal();
