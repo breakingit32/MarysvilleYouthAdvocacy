@@ -18,7 +18,7 @@ public class Manager : MonoBehaviour
         players[3].SetBools();
         players[4].SetBools();
 
-       
+        month2.SetVar();
     }
 
     // Update is called once per frame

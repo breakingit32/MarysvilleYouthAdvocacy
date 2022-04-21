@@ -274,7 +274,6 @@ public class Month2 : MonoBehaviour
         void Update()
     {
         float bills = month2.Cal();
-        Debug.Log(month2.Cal());
         billss = bills;
     }
 
@@ -329,9 +328,7 @@ public class Month2 : MonoBehaviour
         if (utilitesP== false) textU.text = "Utilites";
         Text textC = CarInsurance.GetComponentInChildren<Text>();
         if (carInsuranceP == false) textC.text = "Car Insurance";
-        SetVar();
-        float bills = month2.Cal();
-        billss = bills;
+
 
     }
 
