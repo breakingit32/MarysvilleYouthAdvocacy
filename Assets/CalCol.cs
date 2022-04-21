@@ -18,11 +18,8 @@ public class CalCol : MonoBehaviour
     public float carInsurance;
     public float gas;
     public float internet;
-<<<<<<< HEAD
 
     public Month2 month2;
-=======
->>>>>>> parent of b1379fd (finish)
     
 
     public CalCol(bool rentPaid, bool foodPaid, bool utilitesPaid, bool carInsurancePaid, bool gaspaid, bool internetPaid, float rent, float food, float utilites, float carInsurance, float gas, float internet)
@@ -43,7 +40,6 @@ public class CalCol : MonoBehaviour
 
     public float Cal()
     {
-<<<<<<< HEAD
         if (rentPaid == true) month2.rent = 0f;
         //else if( rentPaid == false) month2.rent = month2.rent;
         if (foodPaid == true) month2.food = 0f;
@@ -56,14 +52,6 @@ public class CalCol : MonoBehaviour
         //else if (gaspaid == false) gas = Month2.gas;
         if (internetPaid == true) internet = 0f;
         //else if (internetPaid == false) internet = Month2.internet;
-=======
-        if (rentPaid == true) rent = 0f;
-        if (foodPaid == true) food = 0f;
-        if (utilitesPaid == true) utilites = 0f;
-        if (carInsurancePaid == true) carInsurance = 0f;
-        if (gaspaid == true) gas = 0f;
-        if (internetPaid == true) internet = 0f;
->>>>>>> parent of b1379fd (finish)
 
         float total = month2.rent + month2.food + month2.utilites + month2.carInsurance + month2.gas + month2.internet;
         //Debug.Log(total);
@@ -87,7 +75,7 @@ public class CalCol : MonoBehaviour
     }
     public float CalChecking(Player player)
     {
-        Cal();
+        
 
         float checking = player.PayCheck - rent - utilites - carInsurance - gas - internet - food;      
         return checking;
