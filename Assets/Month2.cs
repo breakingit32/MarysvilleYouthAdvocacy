@@ -52,6 +52,7 @@ public class Month2 : MonoBehaviour
     }
     public void SetVar()
     {
+        
         rent = 1500;
         food = 100;
         utilites = 50;
@@ -273,8 +274,7 @@ public class Month2 : MonoBehaviour
         // Update is called once per frame
         void Update()
     {
-        float bills = month2.Cal();
-        billss = bills;
+        
     }
 
     public void Done()
@@ -308,7 +308,7 @@ public class Month2 : MonoBehaviour
         internetPaidButton = true;
         foodPaidButton = true;
         carInsurancePaidButton = true;
-
+        SetVar();
         Rent.enabled = true;
         Utilites.enabled = true;
         Gas.enabled = true;

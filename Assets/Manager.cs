@@ -12,13 +12,18 @@ public class Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        players[0].SetBools();
-        players[1].SetBools();
-        players[2].SetBools();
-        players[3].SetBools();
-        players[4].SetBools();
+        //players[1] = new Player(500f, 2000f);
+        //players[0] = new Player(400, 1900);
 
-        month2.SetVar();
+        for (int i = 0; i < 5; i++)
+        {
+            players[i] = new Player(1500, 1000);
+        }
+        //players[2].SetBools();
+        //players[3].SetBools();
+        //players[4].SetBools();
+
+            ///month2.SetVar();
     }
 
     // Update is called once per frame

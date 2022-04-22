@@ -22,16 +22,18 @@ public class TextManager : MonoBehaviour
         Text Col = GetComponent<Text>();
         Text Checking = GetComponent<Text>();
         Text Savings = GetComponent<Text>();
-        Savingsss = manager.players[1].Savings.ToString();
+        
     }
 
     void Update()
     {
+        cal.Cal(manager.players[manager.playerTracker], Month2.rent, Month2.gas, Month2.internet, Month2.carInsurance, Month2.food, Month2.utilites);
+        Savingsss = manager.players[manager.playerTracker].Savings.ToString();
         Player.text = "Player: " + (manager.playerTracker + 1).ToString();
         Debug.Log(cal.CalChecking(manager.players[manager.playerTracker]) + "((((");
-        Checking.text = "Checking: $" + cal.CalChecking(manager.players[manager.playerTracker]).ToString(); 
+        Checking.text = "Checking: $" + manager.players[manager.playerTracker].PayCheck.ToString(); 
         Debug.Log(manager.players[manager.playerTracker].PayCheck + "CCCC");
-        Col.text = "Bills: $" + month2.billss.ToString();
+        Col.text = "Bills: $" + manager.players[manager.playerTracker].Bills;
         Savings.text = "Savings: $" + Savingsss;
         
 

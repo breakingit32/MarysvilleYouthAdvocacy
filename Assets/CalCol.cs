@@ -36,18 +36,21 @@ public class CalCol : MonoBehaviour
         this.internet = internet;
     }
 
-    public float Cal()
+    public float Cal(Player player, float rent, float gas, float internet, float carInsurance, float food, float utilities)
     {
         if (rentPaid == true) rent = 0f;
         if (foodPaid == true) food = 0f;
-        if (utilitesPaid == true) utilites = 0f;
+        if (utilitesPaid == true) utilities = 0f;
         if (carInsurancePaid == true) carInsurance = 0f;
         if (gaspaid == true) gas = 0f;
+
+        Debug.Log(gaspaid +"++++");
+        Debug.Log(gas +"{{{{+");
         if (internetPaid == true) internet = 0f;
-
-        float total = rent + food + utilites + carInsurance + gas + internet;
-        Debug.Log(total);
-
+        
+        float total = rent + food + utilities + carInsurance + gas + internet;
+        Debug.Log(total + ")))))))))))");
+        player.Bills = total;
         return total;
     }
 
@@ -67,7 +70,12 @@ public class CalCol : MonoBehaviour
     }
     public float CalChecking(Player player)
     {
-        Cal();
+        if (rentPaid == true) rent = 0f;
+        if (foodPaid == true) food = 0f;
+        if (utilitesPaid == true) utilites = 0f;
+        if (carInsurancePaid == true) carInsurance = 0f;
+        if (gaspaid == true) gas = 0f;
+        if (internetPaid == true) internet = 0f;
 
         float checking = player.PayCheck - rent - utilites - carInsurance - gas - internet - food;      
         return checking;

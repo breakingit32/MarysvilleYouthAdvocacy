@@ -13,29 +13,35 @@ public class Player : MonoBehaviour
 {
     public float Savings;
     public float PayCheck;
+    public float Bills;
     public bool hasCar;
     public bool hasCarInsurance;
     public bool hasInternet;
     public bool hasFood;
     public bool hasHome;
     public bool hasGas;
+    public CalCol cal;
+    public MonthlyPills monthlyPills;
 
-    public Player(float savings, float payCheck, bool hasCar, bool hasCarInsurance, bool hasInternet, bool hasFood, bool hasHome, bool hasGas)
+    public Player(float savings, float payCheck)
     {
+        monthlyPills = new MonthlyPills();
+        Bills = monthlyPills.total;
         Savings = savings;
         PayCheck = payCheck;
-        this.hasCar = hasCar;
-        this.hasCarInsurance = hasCarInsurance;
-        this.hasInternet = hasInternet;
-        this.hasFood = hasFood;
-        this.hasHome = hasHome;
-        this.hasGas = hasGas;
+        this.hasCar = true;
+        this.hasCarInsurance = true;
+        this.hasInternet = true;
+        this.hasFood = true;
+        this.hasHome = true;
+        this.hasGas = true;
     }
 
     public Player() { }
 
     public void SetBools()
     {
+        Bills = cal.internet + cal.food + cal.gas + cal.carInsurance + cal.rent + cal.utilites;
         Savings = 500;
         PayCheck = 2000;
         hasCar = true;
@@ -44,6 +50,9 @@ public class Player : MonoBehaviour
         hasFood = true;
         hasHome = true;
         hasGas = true;
+
+        
+        
 
     }
     public void UpdateBools()
