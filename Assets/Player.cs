@@ -39,22 +39,8 @@ public class Player : MonoBehaviour
 
     public Player() { }
 
-    public void SetBools()
-    {
-        Bills = cal.internet + cal.food + cal.gas + cal.carInsurance + cal.rent + cal.utilites;
-        Savings = 500;
-        PayCheck = 2000;
-        hasCar = true;
-        hasCarInsurance = true;
-        hasInternet = true;
-        hasFood = true;
-        hasHome = true;
-        hasGas = true;
-
-        
-        
-
-    }
+    
+    
     public void UpdateBools()
     {
         hasCar = false;

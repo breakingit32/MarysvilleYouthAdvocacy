@@ -50,7 +50,7 @@ public class CalCol : MonoBehaviour
         
         float total = rent + food + utilities + carInsurance + gas + internet;
         Debug.Log(total + ")))))))))))");
-        player.Bills = total;
+        //player.Bills = total;
         return total;
     }
 
