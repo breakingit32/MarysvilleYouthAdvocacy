@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class MonthlyPills : MonoBehaviour
 {
-    public float rent;
-    public float utilites;
-    public float internet;
-    public float food;
-    public float carInsurance;
-    public float gas;
-    public float total;
+    private float rent { get; set; }
+    private float utilites { get; set; }
+    private float internet { get; set; }
+    private float food { get; set; }
+    private float carInsurance { get; set; }
+    private float gas { get; set; }
+    public float total { get; set; }
     public MonthlyPills() {
         this.rent = 1500;
         this.utilites = 70;
@@ -26,10 +26,5 @@ public class MonthlyPills : MonoBehaviour
         
     }
 
-    public float totalCal()
-    {
-        float total = this.rent + this.utilites + this.internet + this.food + this.carInsurance + this.gas;
 
-        return total;
-    }
 }
