@@ -330,10 +330,14 @@ public class Month2 : MonoBehaviour
         Text textC = CarInsurance.GetComponentInChildren<Text>();
         if (carInsuranceP == false) textC.text = "Car Insurance";
 <<<<<<< HEAD
+<<<<<<< HEAD
         GameObject game = MainGame.GetComponent<GameObject>();
         
         
         
+=======
+
+>>>>>>> parent of 5374ce5 (Payment done)
 =======
 
 >>>>>>> parent of 5374ce5 (Payment done)
