@@ -41,6 +41,7 @@ public class Month2 : MonoBehaviour
     public float checkBal;
     public float billss;
     public bool buttonPressed;
+    public GameObject MainGame;
     
     // Start is called before the first frame update
     public void Start()
@@ -336,6 +337,8 @@ public class Month2 : MonoBehaviour
         if (utilitesP== false) textU.text = "Utilites";
         Text textC = CarInsurance.GetComponentInChildren<Text>();
         if (carInsuranceP == false) textC.text = "Car Insurance";
+        GameObject game = MainGame.GetComponent<GameObject>();
+        
         
         
 
