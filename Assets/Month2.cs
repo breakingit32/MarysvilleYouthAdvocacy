@@ -35,13 +35,18 @@ public class Month2 : MonoBehaviour
     public Button CarInsurance;
     public Button Food;
     public Button Internet;
+    public Button NextPlayer;
     public Text Warning;
     public static Month2 M;
     public CalCol month2;
     public float checkBal;
     public float billss;
     public bool buttonPressed;
-    
+    public string[] AllSitucation;
+    public List<string> Situation = new List<string>();
+    public GameObject ResultPanel;
+    public GameObject MainPanel;
+
     // Start is called before the first frame update
     public void Start()
     {
@@ -92,6 +97,7 @@ public class Month2 : MonoBehaviour
             if (checkBal == 0)
             {
                 internetPaidButton = false;
+                manager.players[manager.playerTracker].PayCheck = manager.players[manager.playerTracker].PayCheck - manager.players[manager.playerTracker].monthlyPills.internet;
                 manager.players[manager.playerTracker].monthlyPills.internet = 0f;
                 manager.players[manager.playerTracker].monthlyPills.total = manager.players[manager.playerTracker].monthlyPills.totalCal();
                 manager.players[manager.playerTracker].Bills = manager.players[manager.playerTracker].monthlyPills.total;
@@ -124,6 +130,7 @@ public class Month2 : MonoBehaviour
             if (checkBal == 0)
             {
                 carInsurancePaidButton = false;
+                manager.players[manager.playerTracker].PayCheck = manager.players[manager.playerTracker].PayCheck - manager.players[manager.playerTracker].monthlyPills.carInsurance;
                 manager.players[manager.playerTracker].monthlyPills.carInsurance = 0f;
                 manager.players[manager.playerTracker].monthlyPills.total = manager.players[manager.playerTracker].monthlyPills.totalCal();
                 manager.players[manager.playerTracker].Bills = manager.players[manager.playerTracker].monthlyPills.total;
@@ -155,6 +162,7 @@ public class Month2 : MonoBehaviour
             if (checkBal == 0)
             {
                 utilitesPaidButton = false;
+                manager.players[manager.playerTracker].PayCheck = manager.players[manager.playerTracker].PayCheck - manager.players[manager.playerTracker].monthlyPills.utilites;
                 manager.players[manager.playerTracker].monthlyPills.utilites = 0f;
                 manager.players[manager.playerTracker].monthlyPills.total = manager.players[manager.playerTracker].monthlyPills.totalCal();
                 manager.players[manager.playerTracker].Bills = manager.players[manager.playerTracker].monthlyPills.total;
@@ -186,6 +194,7 @@ public class Month2 : MonoBehaviour
             if (checkBal == 0)
             {
                 foodPaidButton = false;
+                manager.players[manager.playerTracker].PayCheck = manager.players[manager.playerTracker].PayCheck - manager.players[manager.playerTracker].monthlyPills.food;
                 manager.players[manager.playerTracker].monthlyPills.food = 0f;
                 manager.players[manager.playerTracker].monthlyPills.total = manager.players[manager.playerTracker].monthlyPills.totalCal();
                 manager.players[manager.playerTracker].Bills = manager.players[manager.playerTracker].monthlyPills.total;
@@ -217,6 +226,7 @@ public class Month2 : MonoBehaviour
             if (checkBal == 0)
             {
                 gaspaidButton = false;
+                manager.players[manager.playerTracker].PayCheck = manager.players[manager.playerTracker].PayCheck - manager.players[manager.playerTracker].monthlyPills.gas;
                 manager.players[manager.playerTracker].monthlyPills.gas = 0f;
                 manager.players[manager.playerTracker].monthlyPills.total = manager.players[manager.playerTracker].monthlyPills.totalCal();
                 manager.players[manager.playerTracker].Bills = manager.players[manager.playerTracker].monthlyPills.total;
@@ -256,9 +266,11 @@ public class Month2 : MonoBehaviour
             if (checkBal == 0)
             {
                 rentPaidButton = false;
+                manager.players[manager.playerTracker].PayCheck = manager.players[manager.playerTracker].PayCheck - manager.players[manager.playerTracker].monthlyPills.rent;
                 manager.players[manager.playerTracker].monthlyPills.rent = 0f;
                 manager.players[manager.playerTracker].monthlyPills.total = manager.players[manager.playerTracker].monthlyPills.totalCal();
                 manager.players[manager.playerTracker].Bills = manager.players[manager.playerTracker].monthlyPills.total;
+                
                 month2.rentPaid = true;
                 Text text = Rent.GetComponentInChildren<Text>();
                 text.text = "paid";
@@ -287,7 +299,53 @@ public class Month2 : MonoBehaviour
 
     public void Done()
     {
+        MainPanel.SetActive(false);
+        ResultPanel.SetActive(true);
         buttonPressed = true;
+        if (month2.carInsurancePaid == false)
+        {
+            string outcomes = "Not legally allowed to drive. May risk car being impounded if pulled overed";
+            Situation.Add(outcomes);
+            Debug.Log(outcomes);
+        }
+
+        if (month2.internetPaid == false)
+        {
+            string outcomes = "You lose internet access for a month. You get very bored"; //Place Holder
+            Situation.Add(outcomes);
+            Debug.Log(outcomes);
+        }
+
+        if (month2.utilitesPaid == false)
+        {
+            string outcomes = "Your power, gas, and water are shut off. Resulting in higher food costs due to increase take outs."; //Place Holder
+            Situation.Add(outcomes);
+            Debug.Log(outcomes);
+        }
+
+        if (month2.foodPaid == false)
+        {
+            string outcomes = "You have nothing to eat and must rely on hand outs and the Food Bank. You feel embarrassed."; //Place Holder
+            Situation.Add(outcomes);
+            Debug.Log(outcomes);
+        }
+
+        if (month2.gaspaid == false)
+        {
+            string outcomes = "Your unable to drive your car for the month. You lose 1/2 your hours due to lack of transportation."; //Place Holder
+            Situation.Add(outcomes);
+            Debug.Log(outcomes);
+        }
+
+        if (month2.rentPaid == false)
+        {
+            string outcomes = "You get a eviction letter from your landlord telling you to pay by next month or get out. You are extremely stressed out."; //Place Holder
+            Situation.Add(outcomes);
+            Debug.Log(outcomes);
+        }
+        
+        Button nextPlayer = NextPlayer.GetComponent<Button>();
+        
         manager.playerTracker = manager.playerTracker + 1;
         if (manager.playerTracker > 4) manager.playerTracker = 0;
         //month2.Cal();SSS
@@ -303,6 +361,8 @@ public class Month2 : MonoBehaviour
     
     public void reset()
     {
+        MainPanel.SetActive(true);
+        ResultPanel.SetActive(false);
         bool rentP = month2.rentPaid == true ? false : false;
         bool gasP = month2.gaspaid == true ? false : false;
         bool internetP = month2.internetPaid == true ? false : false;

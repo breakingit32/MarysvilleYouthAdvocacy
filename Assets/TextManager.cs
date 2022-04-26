@@ -14,6 +14,7 @@ public class TextManager : MonoBehaviour
     public CalCol cal;
     public Text Player;
     public string Savingsss;
+    public Text results;
     
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class TextManager : MonoBehaviour
         Text Col = GetComponent<Text>();
         Text Checking = GetComponent<Text>();
         Text Savings = GetComponent<Text>();
+        Text Result = GetComponent<Text>();
         
     }
 
@@ -35,7 +37,9 @@ public class TextManager : MonoBehaviour
         Debug.Log(manager.players[manager.playerTracker].PayCheck + "CCCC");
         Col.text = "Bills: $" + manager.players[manager.playerTracker].Bills;
         Savings.text = "Savings: $" + Savingsss;
-        
+        results.GetComponent<Text>().text = ""; //Clear the text
+        foreach (string item in month2.Situation) //Add each item to the text
+            results.GetComponent<Text>().text += item.ToString() + ", ";
 
     }
 

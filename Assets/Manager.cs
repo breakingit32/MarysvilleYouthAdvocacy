@@ -6,6 +6,7 @@ public class Manager : MonoBehaviour
 {
     public static Manager M;
     public Month2 month2;
+    public float checking;
     public Player[] players;
     public int playerTracker;
     public string[] scenes = { "Player 1", "Player 2", "Player 3", "Player 4", "Player 5" };
@@ -17,7 +18,7 @@ public class Manager : MonoBehaviour
 
         for (int i = 0; i < 5; i++)
         {
-            players[i] = new Player(1500, 1000);
+            players[i] = new Player(1500, 10000);
         }
         //players[2].SetBools();
         //players[3].SetBools();
@@ -29,6 +30,6 @@ public class Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        checking = players[playerTracker].PayCheck;
     }
 }
