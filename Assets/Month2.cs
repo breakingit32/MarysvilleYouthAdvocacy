@@ -299,8 +299,7 @@ public class Month2 : MonoBehaviour
 
     public void Done()
     {
-        MainPanel.SetActive(false);
-        ResultPanel.SetActive(true);
+        
         buttonPressed = true;
         if (month2.carInsurancePaid == false)
         {
@@ -343,13 +342,14 @@ public class Month2 : MonoBehaviour
             Situation.Add(outcomes);
             Debug.Log(outcomes);
         }
-        
+
         Button nextPlayer = NextPlayer.GetComponent<Button>();
-        
+        MainPanel.SetActive(false);
+        ResultPanel.SetActive(true);
         manager.playerTracker = manager.playerTracker + 1;
         if (manager.playerTracker > 4) manager.playerTracker = 0;
         //month2.Cal();SSS
-        reset();
+        //reset();
         //SceneManager.LoadScene(manager.scenes[manager.playerTracker]);
         
         Debug.Log(manager.playerTracker);
@@ -361,6 +361,7 @@ public class Month2 : MonoBehaviour
     
     public void reset()
     {
+        Situation.Clear();
         MainPanel.SetActive(true);
         ResultPanel.SetActive(false);
         bool rentP = month2.rentPaid == true ? false : false;
