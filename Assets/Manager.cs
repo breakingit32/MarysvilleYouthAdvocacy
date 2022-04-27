@@ -23,7 +23,7 @@ public class Manager : MonoBehaviour
         //players[2].SetBools();
         //players[3].SetBools();
         //players[4].SetBools();
-
+        month2.ListenForButton();
             ///month2.SetVar();
     }
 

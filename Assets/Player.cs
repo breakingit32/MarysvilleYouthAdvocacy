@@ -22,10 +22,22 @@ public class Player : MonoBehaviour
     public bool hasGas;
     public CalCol cal;
     public MonthlyPills monthlyPills;
+    public float rentMutliplier;
+    public float carInsuranceMutliplier;
+    public float foodMutliplier;
+    public float gasMutliplier;
+    public float internetMutliplier;
+    public float utilitesMutliplier;
 
     public Player(float savings, float payCheck)
     {
-        monthlyPills = new MonthlyPills();
+        rentMutliplier = 1f;
+        carInsuranceMutliplier = 1f;
+        gasMutliplier = 1f;
+        utilitesMutliplier = 1f;
+        internetMutliplier = 1f;
+        foodMutliplier = 1f;
+        monthlyPills = new MonthlyPills(foodMutliplier, rentMutliplier, carInsuranceMutliplier, utilitesMutliplier, internetMutliplier, gasMutliplier);
         Bills = monthlyPills.total;
         Savings = savings;
         PayCheck = payCheck;
