@@ -257,6 +257,7 @@ public class Month2 : MonoBehaviour
     }
     public void PaidRent()
     {
+
         Debug.Log(rent);
         Warning.text = "";
         if (rentPaidButton == true)
@@ -267,11 +268,11 @@ public class Month2 : MonoBehaviour
             if (checkBal == 0)
             {
                 rentPaidButton = false;
-                manager.players[manager.playerTracker].monthlyPills.rentPaid = true;
+                manager.players[manager.playerTracker].PayCheck = manager.players[manager.playerTracker].PayCheck - manager.players[manager.playerTracker].monthlyPills.rent;
                 manager.players[manager.playerTracker].monthlyPills.rent = 0f;
                 manager.players[manager.playerTracker].monthlyPills.total = manager.players[manager.playerTracker].monthlyPills.totalCal();
                 manager.players[manager.playerTracker].Bills = manager.players[manager.playerTracker].monthlyPills.total;
-
+                month2.rentPaid = true;
                 Text text = Rent.GetComponentInChildren<Text>();
                 text.text = "paid";
                 Rent.enabled = false;
@@ -304,6 +305,8 @@ public class Month2 : MonoBehaviour
 
     public void Done()
     {
+        MainPanel.SetActive(false);
+        ResultPanel.SetActive(true);
         Situation.Clear();
         buttonPressed = true;
         if (month2.carInsurancePaid == false)
@@ -349,23 +352,51 @@ public class Month2 : MonoBehaviour
         }
 
         Button nextPlayer = NextPlayer.GetComponent<Button>();
-        MainPanel.SetActive(false);
-        ResultPanel.SetActive(true);
+        
         manager.playerTracker = manager.playerTracker + 1;
         if (manager.playerTracker > 4)
         {
             manager.playerTracker = 0;
             monthTracker++;
-            if(monthTracker == 1)
-            if(monthTracker < 7)
+            if(monthTracker == 2)
             {
-                MainPanel.SetActive(false);
-                ResultPanel.SetActive(false);
-                Finish2.SetActive(true);
+                for (int i = 0; i < 5; i++)
+                { 
+                        manager.players[i].PayCheck += 2000;
+                }
             }
+            if (monthTracker == 3)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    manager.players[i].PayCheck += 2000;
+                }
+            }
+            if (monthTracker == 4)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    manager.players[i].PayCheck += 2000;
+                }
+            }
+            if (monthTracker == 5)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    manager.players[i].PayCheck += 2000;
+                }
+            }
+            if (monthTracker == 6)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    manager.players[i].PayCheck += 2000;
+                }
+            }
+            
         }
         //month2.Cal();SSS
-        reset();
+        //reset();
         //SceneManager.LoadScene(manager.scenes[manager.playerTracker]);
         
         Debug.Log(manager.playerTracker);
@@ -377,54 +408,64 @@ public class Month2 : MonoBehaviour
     
     public void reset()
     {
-        
-        Situation.Clear();
-        MainPanel.SetActive(true);
-        ResultPanel.SetActive(false);
-        bool rentP = month2.rentPaid == true ? false : false;
-        bool gasP = month2.gaspaid == true ? false : false;
-        bool internetP = month2.internetPaid == true ? false : false;
-        bool foodP = month2.foodPaid == true ? false : false;
-        bool utilitesP = month2.utilitesPaid == true ? false : false;
-        bool carInsuranceP = month2.carInsurancePaid == true ? false : false;
+        if (monthTracker == 7)
+        {
+            MainPanel.SetActive(false);
+            ResultPanel.SetActive(false);
+            Finish2.SetActive(true);
+        }
+        else {
+            MainPanel.SetActive(true);
+            ResultPanel.SetActive(false);
 
-        rentPaidButton = true;
-        utilitesPaidButton = true;
-        gaspaidButton = true;
-        internetPaidButton = true;
-        foodPaidButton = true;
-        carInsurancePaidButton = true;
-        Text rent = Rent.GetComponentInChildren<Text>();
-        rent.text = "Rent: $" + manager.players[manager.playerTracker].monthlyPills.rent.ToString();
-        Text food = Food.GetComponentInChildren<Text>();
-        food.text = "Food: $" + manager.players[manager.playerTracker].monthlyPills.food.ToString();
-        Text gas = Gas.GetComponentInChildren<Text>();
-        gas.text = "Gas: $" + manager.players[manager.playerTracker].monthlyPills.gas.ToString();
-        Text utilites = Utilites.GetComponentInChildren<Text>();
-        utilites.text = "Utilites: $" + manager.players[manager.playerTracker].monthlyPills.utilites.ToString();
-        Text carInsurance = CarInsurance.GetComponentInChildren<Text>();
-        carInsurance.text = "Car Insurance: $" + manager.players[manager.playerTracker].monthlyPills.carInsurance.ToString();
-        Text internet = Internet.GetComponentInChildren<Text>();
-        internet.text = "Internet: $" + manager.players[manager.playerTracker].monthlyPills.internet.ToString();
-        Rent.enabled = true;
-        Utilites.enabled = true;
-        Gas.enabled = true;
-        Internet.enabled = true;
-        CarInsurance.enabled = true;
-        Food.enabled = true;
-        buttonPressed = false;
-        Text textR = Rent.GetComponentInChildren<Text>();
-        if (rentP == false) textR.text = "Rent";
-        Text textG = Gas.GetComponentInChildren<Text>();
-        if (gasP == false) textG.text = "Gas";
-        Text textI= Internet.GetComponentInChildren<Text>();
-        if (internetP == false) textI.text = "Internet";
-        Text textF = Food.GetComponentInChildren<Text>();
-        if (foodP == false) textF.text = "Food";
-        Text textU = Utilites.GetComponentInChildren<Text>();
-        if (utilitesP== false) textU.text = "Utilites";
-        Text textC = CarInsurance.GetComponentInChildren<Text>();
-        if (carInsuranceP == false) textC.text = "Car Insurance";
+            Situation.Clear();
+
+            bool rentP = month2.rentPaid == true ? false : false;
+            bool gasP = month2.gaspaid == true ? false : false;
+            bool internetP = month2.internetPaid == true ? false : false;
+            bool foodP = month2.foodPaid == true ? false : false;
+            bool utilitesP = month2.utilitesPaid == true ? false : false;
+            bool carInsuranceP = month2.carInsurancePaid == true ? false : false;
+
+            rentPaidButton = true;
+            utilitesPaidButton = true;
+            gaspaidButton = true;
+            internetPaidButton = true;
+            foodPaidButton = true;
+            carInsurancePaidButton = true;
+            Text rent = Rent.GetComponentInChildren<Text>();
+            rent.text = "Rent: $" + manager.players[manager.playerTracker].monthlyPills.rent.ToString();
+            Text food = Food.GetComponentInChildren<Text>();
+            food.text = "Food: $" + manager.players[manager.playerTracker].monthlyPills.food.ToString();
+            Text gas = Gas.GetComponentInChildren<Text>();
+            gas.text = "Gas: $" + manager.players[manager.playerTracker].monthlyPills.gas.ToString();
+            Text utilites = Utilites.GetComponentInChildren<Text>();
+            utilites.text = "Utilites: $" + manager.players[manager.playerTracker].monthlyPills.utilites.ToString();
+            Text carInsurance = CarInsurance.GetComponentInChildren<Text>();
+            carInsurance.text = "Car Insurance: $" + manager.players[manager.playerTracker].monthlyPills.carInsurance.ToString();
+            Text internet = Internet.GetComponentInChildren<Text>();
+            internet.text = "Internet: $" + manager.players[manager.playerTracker].monthlyPills.internet.ToString();
+            Rent.enabled = true;
+            Utilites.enabled = true;
+            Gas.enabled = true;
+            Internet.enabled = true;
+            CarInsurance.enabled = true;
+            Food.enabled = true;
+            buttonPressed = false;
+            Text textR = Rent.GetComponentInChildren<Text>();
+            if (rentP == false) textR.text = "Rent";
+            Text textG = Gas.GetComponentInChildren<Text>();
+            if (gasP == false) textG.text = "Gas";
+            Text textI = Internet.GetComponentInChildren<Text>();
+            if (internetP == false) textI.text = "Internet";
+            Text textF = Food.GetComponentInChildren<Text>();
+            if (foodP == false) textF.text = "Food";
+            Text textU = Utilites.GetComponentInChildren<Text>();
+            if (utilitesP == false) textU.text = "Utilites";
+            Text textC = CarInsurance.GetComponentInChildren<Text>();
+            if (carInsuranceP == false) textC.text = "Car Insurance";
+        }
+       
         
         
 

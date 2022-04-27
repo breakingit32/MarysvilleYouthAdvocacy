@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
 
     public Player(float savings, float payCheck)
     {
-        rentMutliplier = 1f;
+        rentMutliplier = 1.1f;
         carInsuranceMutliplier = 1f;
         gasMutliplier = 1f;
         utilitesMutliplier = 1f;
