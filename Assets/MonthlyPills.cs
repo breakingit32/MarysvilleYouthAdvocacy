@@ -38,14 +38,22 @@ public class MonthlyPills : MonoBehaviour
     //{
         
     //}
-
-    public float totalCal()
+    public void keepVar(float rent, float utilites, float internet, float food, float carInsurance, float gas)
     {
-        if (rentPaid == true) rent = 0f;
-        if (foodPaid == true) food = 0f;
-        if (utilitesPaid == true) utilites = 0f;
-        if (carInsurancePaid == true) carInsurance = 0f;
-        if (gaspaid == true) gas = 0f;
+        float oldRent = rent;
+        float oldUtilites = utilites;
+        float oldInternet = internet;
+        float oldFood = food;
+        float oldCarInsurance = carInsurance;
+        float oldGas = gas;
+    }
+    public float totalCal(float playerFood, float Playerrent, float PlayercarInsurance, float Playerutilties, float Playerinternt, float Playergas)
+    {
+        if (rentPaid == true)  Playerrent= 0f;
+        if (foodPaid == true) playerFood = 0f;
+        if (utilitesPaid == true) Playerutilties = 0f;
+        if (carInsurancePaid == true) PlayercarInsurance = 0f;
+        if (gaspaid == true) Playergas = 0f;
         float total = this.rent + this.utilites + this.internet + this.food + this.carInsurance + this.gas;
 
         return total;

@@ -19,6 +19,8 @@ public class Manager : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             players[i] = new Player(1500, 10000);
+            players[i].monthlyPills.keepVar(players[i].monthlyPills.rent, players[i].monthlyPills.gas, players[i].monthlyPills.carInsurance, players[i].monthlyPills.food, players[i].monthlyPills.utilites, players[i].monthlyPills.internet);
+            
         }
         //players[2].SetBools();
         //players[3].SetBools();
@@ -30,6 +32,8 @@ public class Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        players[playerTracker].monthlyPills.keepVar(players[playerTracker].foodMutliplier, players[playerTracker].rentMutliplier, players[playerTracker].carInsuranceMutliplier, players[playerTracker].utilitesMutliplier, players[playerTracker].internetMutliplier, players[playerTracker].gasMutliplier);
         checking = players[playerTracker].PayCheck;
+        month2.ListenForButton();
     }
 }
