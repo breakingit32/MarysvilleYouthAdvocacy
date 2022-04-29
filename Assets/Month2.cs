@@ -302,7 +302,7 @@ public class Month2 : MonoBehaviour
         MainPanel.SetActive(false);
         ResultPanel.SetActive(true);
         Situation.Clear();
-        buttonPressed = true;
+        buttonPressed = false; 
         manager.players[manager.playerTracker].rentMutliplier = 1f;
         manager.players[manager.playerTracker].foodMutliplier = 1f;
         manager.players[manager.playerTracker].gasMutliplier = 1f;
